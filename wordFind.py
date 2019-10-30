@@ -4,5 +4,3 @@ def findWord(s , n):
         return listWords[n-1]
     else: 
         return "Index out of range"
-
-print(findWord("Ethan is my nigga" , 8))
