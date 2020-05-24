@@ -4,17 +4,17 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        
-        if prices == []:
+        if len(prices) < 2: 
             return 0
-        
-        minPrice = prices[0] 
-        maxProfit = 0
-
-        for i in range(1, len(prices)): 
-            if prices[i] < minPrice: 
-                minPrice = prices[i]
-            elif prices[i] - minPrice > maxProfit: 
-                maxProfit = prices[i] - minPrice        
-        return maxProfit
-
+        peak = prices[0]
+        valley = prices[0]
+        max = 0
+        for i in range(1,len(prices)): 
+            if prices[i] < valley: 
+                valley = prices[i]
+                peak = 0
+            elif prices[i] > peak: 
+                peak = prices[i]
+            if peak - valley > max:
+                max = peak - valley
+        return max
